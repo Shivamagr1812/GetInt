@@ -16,9 +16,6 @@ const InternSchema = new mongoose.Schema({
     CutOff: {
         type: Number,
         default: 0.0      
-    },
-    RefreshToken: {
-        type: String
     }
 })
 
