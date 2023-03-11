@@ -3,8 +3,10 @@ import About from './About';
 import './App.css';
 import AvIntern from './AvIntern';
 import Home from './Home';
+import Login from './Login';
 import Navbar from './Navbar';
 import NewIntern from './NewIntern';
+import Register from './Register';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
             <Route path="/about" element={<About/>}></Route>
             <Route path="/new-intern" element={<NewIntern/>}></Route>
             <Route path="/interns" element={<AvIntern/>}></Route>
+            <Route path='/register' element={<Register/>}></Route>
+            <Route path='/login' element={<Login/>}></Route>
           </Routes>
         </div>
       </div>
