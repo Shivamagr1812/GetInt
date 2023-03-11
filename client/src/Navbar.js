@@ -10,6 +10,8 @@ const Navbar = ()=>{
                 <Link to="/">Home</Link>
                 <Link to="/interns">Available Internships</Link>
                 <Link to="/new-intern">Add Internship</Link>
+                <Link to="/register">Register</Link>
+                <Link to="/login">Login</Link>
             </ul>
         </nav>
     );
