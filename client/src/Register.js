@@ -40,7 +40,7 @@ const Register = ()=>{
                 </div>
             </div>
                 
-            <button onClick={addToList}>Submit</button>
+            <button onClick={addToList}>Register</button>
         </div>
     );
 }
