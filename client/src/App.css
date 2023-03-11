@@ -94,16 +94,15 @@ nav .title a{
 .details button:hover{
   background-color: #5a5a5a;
 }
+
+/* Homepage */
+
 .homePage{
   margin-top: 20px;
   padding: 20px;
   display: flex;
   justify-content: center;
 }
-
-
-/* ******* */
-
 
 .dialogBox{
   display: flex;
@@ -147,6 +146,8 @@ nav .title a{
   cursor: pointer;
   font-size: 1.5em;
 }
+
+/* About */
 
 .about{
   display: flex;
