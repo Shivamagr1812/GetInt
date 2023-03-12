@@ -41,7 +41,7 @@ const Login=()=>{
                 </div>
                 <div>
                     <label>Password</label>
-                    <input type="text" value={password} onChange={(e)=>{
+                    <input type="password" value={password} onChange={(e)=>{
                         setPassword(e.target.value);
                     }}/> 
                 </div>
