@@ -1,0 +1,12 @@
+GET http://localhost:3001/read 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MGNiNjQ4Y2UwZDRhYzA2ZDhkNjA0YSIsImlhdCI6MTY3ODYxNDY3OH0.ZnmKZP6qH1G9xgR5qQjFPbSdBSDtDGCQQz7elkIK_8s
+
+###
+
+POST http://localhost:3001/login 
+Content-Type: application/json
+
+{
+"userName": "abc",
+"password": "xyz"
+}

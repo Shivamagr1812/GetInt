@@ -1,3 +1,1 @@
 # GetIntern
-# GetIntern
-# GetInt

@@ -163,6 +163,8 @@ nav .title a{
   max-width: 480px;
 }
 
+/* Available interns */
+
 .available{
   padding: 20px;
   display: flex;
@@ -174,6 +176,36 @@ nav .title a{
 .available h1{
   margin: auto;
   text-decoration: underline;
+}
+
+.available .login{
+  padding: 20px;
+}
+
+.login button{
+  font-size: 2.5vw;
+  max-width: 10vw;
+  padding: 5px;
+  border: 3px solid white;
+  border-radius: 5px;
+  color: beige;
+  background-color: black;
+  margin: 20px;
+}
+.login button:hover{
+  background-color: #5a5a5a;
+}
+
+.login{
+  border: 4px solid black;
+  margin: 7% auto;
+  max-width: fit-content;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+  background-color: #267d4d;
 }
 
 .available .list{
