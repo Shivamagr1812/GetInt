@@ -1,4 +1,5 @@
 
+import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -8,12 +9,27 @@ const Login=()=>{
 
     const navigate = useNavigate();
 
+    const setAuthToken = token => {
+        if (token) {
+            axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+        }
+        else
+            delete axios.defaults.headers.common["Authorization"];
+     }
+
     const addToList = () =>{
         console.log("button working!!")
+        axios.post("http://localhost:3001/login",{
+            userName,
+            password
+        }).then((res)=>{
+            const token=res.data.token
+            setAuthToken(token);
+        })
         const path=`/`
         navigate(path)
     }
-
+    
     return (
         <div className="details">
             <div className="fields">
