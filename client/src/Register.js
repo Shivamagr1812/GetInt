@@ -11,7 +11,7 @@ const Register = ()=>{
 
     const addToList = () =>{
         console.log("button working!!")
-        axios.post("http://localhost:3001/register",{
+        axios.post("https://get-intern.onrender.com/register",{
             userName,
             password
         });

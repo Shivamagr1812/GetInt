@@ -7,7 +7,7 @@ const AvIntern = ()=>{
     const [internList,setInternList] = useState([])
     const [loggedin,setLoggedin]=useState(false);
     useEffect(()=>{
-        axios.get("http://localhost:3001/read").then((response)=>{
+        axios.get("https://get-intern.onrender.com/read").then((response)=>{
             const status=response.status
             console.log(status)
             if(status===200){
