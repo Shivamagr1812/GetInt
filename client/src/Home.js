@@ -17,7 +17,6 @@ const Home = ()=>{
 
     return (
         <div className="homePage">
-            <h1 className="welcome">Welcome User!</h1>
             <div className="dialogBox">
                 <header><h1>Choose your role</h1></header>
                 <div className="option">

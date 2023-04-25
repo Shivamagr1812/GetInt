@@ -1,6 +1,6 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
 *{
   margin: 0;
@@ -246,5 +246,22 @@ nav .title a{
 
 .block div{
   text-align: left;
+}
+
+.data{
+  display: flex;
+  flex-direction: column;
+}
+
+.apply{
+  display: flex;
+  justify-content: end;
+}
+
+.applyButton{
+  background-color: #92f992;
+  border: 2px solid black;
+  border-radius: 4px;
+  padding: 3px;
 }
 
