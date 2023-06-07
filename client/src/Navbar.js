@@ -4,10 +4,9 @@ const Navbar = ()=>{
     console.log("Working Fine");
     return (
         <nav>
-            <div className="title tooltip"><Link to="/about" >GetIntern</Link></div>
-            
+            <div className="title"><Link to="/about" >GetIntern</Link></div>
             <ul className="navbar">
-                <Link to="/">Home</Link>
+                <Link to="/" className="home">Home</Link>
                 <Link to="/interns">Available Internships</Link>
                 <Link to="/new-intern">Add Internship</Link>
                 <Link to="/register">Register</Link>
