@@ -27,27 +27,32 @@ nav{
 }
 
 .navbar{
-  /* width: 100%; */
+  width: 45%;
   display: flex;
-  list-style-type: none;
+  /* border: 1px solid red; */
+  /* list-style-type: none; */
+  justify-content: space-between;
+  
 }
 
 .navbar a{
   text-decoration: none;
+  /* border: 1px solid white; */
   color: azure;
   cursor: pointer;
   text-align: center;
-  min-width: 160px;
-  flex: 1 1 0;
-  padding: 10px;
+  /* min-width: 160px; */
+  /* flex: 1 1 0;  */
+  padding: 8px;
   font-weight: bold;
-  transition: 0.3s;
+  transition: 0.15s;
 }
 
 .navbar a:hover,
 .navbar .home
 {
   color: #00abf0;
+  font-weight: bold;
 }
 
 nav .title a{
@@ -55,7 +60,7 @@ nav .title a{
   cursor: pointer;
   color: #ededed;
   padding: 20px;
-  font-size: 1.3em;
+  font-size: 1.8em;
   font-weight: bold;
 }
 
