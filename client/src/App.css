@@ -9,6 +9,116 @@
 }
 
 body{
+  background: #081b29;
+}
+
+nav{
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  left: 0;
+  /* padding: 1px; */
+  opacity: 0.8;
+  padding-top: 5px;
+}
+
+.navbar{
+  width: 45%;
+  display: flex;
+  /* border: 1px solid red; */
+  /* list-style-type: none; */
+  justify-content: space-between;
+  
+}
+
+.navbar a{
+  text-decoration: none;
+  /* border: 1px solid white; */
+  color: #ededed;
+  cursor: pointer;
+  text-align: center;
+  /* min-width: 160px; */
+  /* flex: 1 1 0;  */
+  padding: 8px;
+  font-weight: bold;
+  transition: 0.15s;
+}
+
+.navbar a:hover,
+.navbar .home
+{
+  color: #00abf0;
+  font-weight: bold;
+}
+
+nav .title a{
+  text-decoration: none;
+  cursor: pointer;
+  color: #ededed;
+  padding: 20px;
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+.welcome{
+  display: block;
+}
+
+.details{
+  border: 4px solid black;
+  margin: 7% auto;
+  max-width: fit-content;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+  background-color: #267d4d;
+}
+.fields{
+  display: flex;
+  flex-direction: column;
+}
+.fields div{
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+.details label{
+  padding: 20px;
+  font-size: 2.5vw;
+  color: white;
+}
+.details input{
+  font-size: 2.5vw;
+  height: 3vw;
+  border: solid white;
+  border-radius: 5px;
+  background-color: rgb(216, 216, 216);
+  padding: 10px;
+}
+.details button{
+  font-size: 2.5vw;
+  max-width: 10vw;
+  padding: 5px;
+  border: 3px solid white;
+  border-radius: 5px;
+  color: beige;
+  background-color: black;
+  margin: 20px;
+}
+.details button:hover{
+  background-color: #5a5a5a;
+}
+
+/* body{
   background-color:#92f992;
 }
 
@@ -27,15 +137,11 @@ nav{
 .navbar{
   width: 100%;
   display: flex;
-<<<<<<< HEAD
   padding-right: 20px;
-  /* border: 1px solid red; */
-  /* list-style-type: none; */
-  justify-content: space-between;
-  
-=======
+  border: 1px solid red;
   list-style-type: none;
->>>>>>> cd751f24ed5e39e43922c398ab860c2aca43d11e
+  justify-content: space-between;
+  list-style-type: none;
 }
 
 .navbar a{
@@ -43,7 +149,7 @@ nav{
   color: azure;
   cursor: pointer;
   text-align: center;
-  /* min-width: 160px; */
+  min-width: 160px; 
   flex: 1 1 0;
   padding: 20px;
 }
@@ -112,7 +218,7 @@ nav .title a{
 }
 .details button:hover{
   background-color: #5a5a5a;
-}
+} */
 
 /* Homepage */
 
@@ -188,6 +294,10 @@ nav .title a{
   letter-spacing: 1px;
   cursor: pointer;
   transition: 0.3s;
+}
+
+.icon{
+  margin-right: 5px;
 }
 
 

@@ -17,7 +17,6 @@ const Home = ()=>{
 
     return (
         <div className="homePage">
-            {/* <h1 className="welcome">Welcome User!</h1> */}
             <div className="dialogBox">
                 <h1>Welcome!</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae repellendus quis commodi alias aut iste labore sed quaerat, provident voluptatibus delectus obcaecati consequatur sint atque culpa inventore? Facere, ex sit!</p>
