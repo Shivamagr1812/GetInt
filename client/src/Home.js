@@ -17,14 +17,13 @@ const Home = ()=>{
 
     return (
         <div className="homePage">
-            {/* <h1 className="welcome">Welcome User!</h1> */}
             <div className="dialogBox">
-                <header><h1>Choose your role</h1></header>
+                <h1>Welcome!</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae repellendus quis commodi alias aut iste labore sed quaerat, provident voluptatibus delectus obcaecati consequatur sint atque culpa inventore? Facere, ex sit!</p>
+                <h2>Choose your role</h2>
                 <div className="option">
-                    {/* <form > */}
                         <button onClick={goToAvInt}><FaGraduationCap className="icon"/>Student</button>
                         <button onClick={goToAddInt}><FaBriefcase className="icon"/>Employer</button>
-                    {/* </form> */}
                 </div>
             </div>
         </div>
