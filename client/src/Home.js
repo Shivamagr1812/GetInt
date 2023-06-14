@@ -17,15 +17,19 @@ const Home = ()=>{
 
     return (
         <div className="homePage">
-            <div className="dialogBox">
-                <h1>Welcome!</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae repellendus quis commodi alias aut iste labore sed quaerat, provident voluptatibus delectus obcaecati consequatur sint atque culpa inventore? Facere, ex sit!</p>
-                <h2>Choose your role</h2>
-                <div className="option">
-                        <button onClick={goToAvInt}><FaGraduationCap className="icon"/>Student</button>
-                        <button onClick={goToAddInt}><FaBriefcase className="icon"/>Employer</button>
+            <div className="welcome">
+                <div className="dialogBox">
+                    <h1>Welcome!</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae repellendus quis commodi alias aut iste labore sed quaerat, provident voluptatibus delectus obcaecati consequatur sint atque culpa inventore? Facere, ex sit!</p>
+                    <h2>Choose your role</h2>
+                    <div className="option">
+                            <button onClick={goToAvInt}><FaGraduationCap className="icon"/>Student</button>
+                            <button onClick={goToAddInt}><FaBriefcase className="icon"/>Employer</button>
+                    </div>
                 </div>
             </div>
+            
+            {/* <div className="homeImg"><img src={require('./assets/img/img-intern.jpg')} alt="" /></div> */}
         </div>
     );
 }
