@@ -128,36 +128,39 @@ nav .title a img{
 
 .homePage{
   display: flex;
-  align-items: center;
-  height: 85vh;
+  /* align-items: center; */
+  /* height: 85vh; */
   padding: 0 10%;
 }
 
-.dialogBox{
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
+.welcome{
+  padding: 10% 0;
+  width: 100%;
+  display: flex;
   justify-content: center;
-  width: 500px;
-  border: 3px solid black;
-  padding: 30px; */
-  /* border-radius: 10px;
-  height: 280px; */
-  max-width: 600px;
+}
+
+.homeImg img{
+  padding: 10% 0;
+  width: 36vw;
+  height: auto;
+}
+
+.dialogBox{
+  width: 50vw;
 }
 .dialogBox h1{
+  margin: 2% 0;
   color: #ededed;
-  font-size: 56px;
-  font-weight: 700;
-    /* color: rgb(0, 77, 9);
-    padding: 20px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    word-spacing: 0.3em; */
+  font-size: 40px;
+  font-weight: 600;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .dialogBox h2{
+  margin: 1% 0;
   font-size: 32px;
-  font-weight: 700;
+  font-weight: 560;
   color: #00abf0;
     /* color: rgb(0, 77, 9);
     padding: 20px;
@@ -166,7 +169,7 @@ nav .title a img{
 }
 
 .dialogBox p{
-  font-size: 16px;
+  font-size: 20px;
   margin: 20px 0 25px;
   color: #ededed;
 }
@@ -178,8 +181,19 @@ nav .title a img{
 .dialogBox .option{
   display: flex;
   justify-content: space-between;
-  width: 345px;
+  width: 100%;
   height: 50px;
+}
+
+.stud,.emp{
+  width: 50%;
+  text-align: center;
+  padding-right: 10%;
+  /* margin: 0 4%; */
+}
+
+.option p{
+  text-align: start;
 }
 
 .option button{
@@ -205,39 +219,14 @@ nav .title a img{
 }
 
 
-.option button:nth-child(2){
+/* .option button:nth-child(2){
   background: transparent;
   color: #00abf0;
-}
+} */
 
 .option button:hover{
   color: #ededed;
 }
-/* .option{
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 20px;
-}
-
-.option button{
-  font-size: 1.3em;
-  margin: 20px;
-  padding: 10px;
-  min-width: 30px;
-}
-.option .icon{
-  margin: auto;
-  width: 50%;
-  color: #013E27;
-}
-
-.option button:hover{
-  background-color: #9b9b9b;
-  border: 2px solid rgb(53, 53, 53);
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1.5em;
-} */
 
 /* About */
 
