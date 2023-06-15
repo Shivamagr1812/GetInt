@@ -11,7 +11,7 @@ const NewIntern = () => {
 
     const addToList = () =>{
         console.log("button working!!")
-        axios.post("https://get-intern.onrender.com/insert",{
+        axios.post("http://localhost:3001/insert",{
             companyName,
             jobRole,
             stipend,

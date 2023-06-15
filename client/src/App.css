@@ -84,7 +84,7 @@ nav .title a img{
   flex-direction: column;
   align-items: center;
   border-radius: 15px;
-  background-color: #267d4d;
+  background-color: #00abf0;
 }
 .fields{
   display: flex;
@@ -257,6 +257,7 @@ nav .title a img{
 .available h1{
   margin: auto;
   text-decoration: underline;
+  color: #ffffff;
 }
 
 .available .login{
@@ -286,7 +287,7 @@ nav .title a img{
   flex-direction: column;
   align-items: center;
   border-radius: 15px;
-  background-color: #267d4d;
+  background-color: #00abf0;
 }
 
 .available .list{
@@ -302,7 +303,7 @@ nav .title a img{
   margin: 20px;
   min-width: 200px;
   max-width: 200px;
-  background-color: #267d4d;
+  background-color: #00abf0;
   text-align: center;
   border: #013E27 solid 3px;
   border-radius: 8px;
@@ -329,8 +330,9 @@ nav .title a img{
 }
 
 .applyButton{
-  background-color: #92f992;
-  border: 2px solid black;
+  color: white;
+  background-color: #081b29;
+  border: 2px solid white;
   border-radius: 4px;
   padding: 3px;
 }
