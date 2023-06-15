@@ -4,7 +4,7 @@ const Navbar = ()=>{
     console.log("Working Fine");
     return (
         <nav>
-            <div className="title"><Link to="/about" >GetIntern</Link></div>
+            <div className="title"><Link to="/about" ><img src={require('./assets/logos/png/logo-white-no-bg.png')} alt="GetIntern" /></Link></div>
             <ul className="navbar">
                 <Link to="/" className="home">Home</Link>
                 <Link to="/interns">Available Internships</Link>
