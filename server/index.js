@@ -59,7 +59,7 @@ const storage = multer.memoryStorage();
 
 const upload = multer({ storage: storage });
 
-app.post("/apply",upload.single('entry'),async(req,res)=>{
+app.post("/apply",upload.single('resume'),async(req,res)=>{
     console.log(req);
     const name = req.body.name;
     const email = req.body.email;

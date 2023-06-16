@@ -21,7 +21,7 @@ const ApplicationSchema = new mongoose.Schema({
     },
     Resume: {
         data: Buffer,
-        contentType: String,
+        contentType: String
         // required: true
     }
 })
