@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Modal from "./Modals/Modal";
 
 const AvIntern = ()=>{
 
@@ -25,6 +26,12 @@ const AvIntern = ()=>{
         navigate(path)
     }
 
+    // Apply button
+    const [showModal, setShowModal] = useState(false);
+    const openModal = () => {
+        setShowModal(prev => !prev);
+    };
+
     return(
         <div className="available">
             <h1>Internships for you</h1>
@@ -39,16 +46,22 @@ const AvIntern = ()=>{
                             <div><span>Cutoff: </span>{val.CutOff}</div>
                             </div>
                             <div className="apply">
-                                <button className="applyButton">Apply</button>
+                                <button onClick={openModal} className="applyButton">Apply</button>
                             </div>
                         </div>
                     )
                 })}
+                <Modal trigger={showModal} setTrigger={setShowModal}>
+                    <h3>Submit your Resume</h3>
+                    <form action="#" onSubmit={()=> setShowModal(false)}>
+                        <input type="file" name="resume" id="resume" required/>
+                        <button type="submit">Submit</button>
+                    </form>
+                </Modal>
             </div> : <div className="login">
                         <h2>Please log in</h2>
                         <button onClick={goToLogin}>Login</button>
-                    </div>}
-            
+                    </div>}        
         </div>
     )
 }
