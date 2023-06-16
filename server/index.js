@@ -4,11 +4,13 @@ const jwt = require("jsonwebtoken")
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const multer = require("multer");
 
 const app = express();
 
 const internModel = require("./Models/intern")
 const studentModel = require("./Models/student")
+const applicationModel = require("./Models/application")
 app.use(express.json());
 app.use(cors());
 
@@ -30,6 +32,7 @@ app.post("/register",async(req,res)=>{
     }    
 })
 
+// Add New Internships
 
 app.post("/insert",async(req,res)=>{
     console.log("Post made")
@@ -39,6 +42,36 @@ app.post("/insert",async(req,res)=>{
     const cutoff = req.body.cutoff;
 
     const entry = new internModel({ CompanyName: companyName, JobRole: jobRole , Stipend: stipend, CutOff: cutoff});
+    
+    try{
+        await entry.save();
+        console.log("Entry Added!");
+        res.send("");
+    }
+    catch(err){
+        console.log(err)
+    }
+});
+
+// Add New Applications
+
+const storage = multer.memoryStorage();
+
+const upload = multer({ storage: storage });
+
+app.post("/apply",upload.single('entry'),async(req,res)=>{
+    console.log(req);
+    const name = req.body.name;
+    const email = req.body.email;
+    const branch = req.body.branch;
+    const role = req.body.role;
+    const resume = {
+        data: req.file.buffer,
+        contentType: req.file.mimetype
+    }
+
+    const entry = new applicationModel({ Name: name, Email: email , Branch: branch, Role: role, Resume: resume});
+    // const entry = new internModel({ Name: name, Email: email , Branch: branch, Role: role, Resume: resume});
     
     try{
         await entry.save();

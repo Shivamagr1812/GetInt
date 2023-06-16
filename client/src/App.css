@@ -546,3 +546,10 @@ nav .title a img{
   top: 16px;
   right: 16px;
 }
+
+.application{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

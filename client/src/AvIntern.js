@@ -52,11 +52,6 @@ const AvIntern = ()=>{
                     )
                 })}
                 <Modal trigger={showModal} setTrigger={setShowModal}>
-                    <h3>Submit your Resume</h3>
-                    <form action="#" onSubmit={()=> setShowModal(false)}>
-                        <input type="file" name="resume" id="resume" required/>
-                        <button type="submit">Submit</button>
-                    </form>
                 </Modal>
             </div> : <div className="login">
                         <h2>Please log in</h2>
