@@ -7,6 +7,7 @@ import Login from './Login';
 import Navbar from './Navbar';
 import NewIntern from './NewIntern';
 import Register from './Register';
+import Footer from './Footer';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path='/login' element={<Login/>}></Route>
           </Routes>
         </div>
+        <Footer />
       </div>
     </Router>
   );
