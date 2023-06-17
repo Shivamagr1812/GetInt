@@ -9,9 +9,6 @@ const StudentSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
-    },
-    RefreshToken: {
-        type: String
     }
 })
 

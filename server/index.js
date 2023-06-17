@@ -14,11 +14,16 @@ const applicationModel = require("./Models/application")
 app.use(express.json());
 app.use(cors());
 
+// const corsOptions = {
+//     origin: 'https://get-intern.vercel.app/'
+// }
 
-mongoose.connect("mongodb+srv://shivam1812:atlas1812@cluster0.ghlhz8q.mongodb.net/Internships?retryWrites=true&w=majority",
+mongoose.connect(process.env.MONGODB_URL,
 {
     useNewUrlParser: true
 });
+
+// Student Registration
 
 app.post("/register",async(req,res)=>{
     try{
@@ -31,6 +36,21 @@ app.post("/register",async(req,res)=>{
         res.status(500).send()
     }    
 })
+
+// Company Registration
+
+app.post("/registerCompany",async(req,res)=>{
+    try{
+        const hashedPassword = await bcrypt.hash(req.body.password,10)
+        const user = {name: req.body.name , password: hashedPassword}
+        const newUser = new companyModel({name: user.name, password: user.password})
+        await newUser.save()
+        res.status(201).send()
+    } catch{
+        res.status(500).send()
+    }    
+}
+)
 
 // Add New Internships
 
@@ -53,7 +73,7 @@ app.post("/insert",async(req,res)=>{
     }
 });
 
-// Add New Applications
+// New Applications
 
 const storage = multer.memoryStorage();
 
@@ -83,6 +103,8 @@ app.post("/apply",upload.single('resume'),async(req,res)=>{
     }
 });
 
+// View Internships
+
 app.get("/read",authenticateToken,async(req,res)=>{
     internModel.find({}).then((result)=>{
         res.send(result);
@@ -111,6 +133,8 @@ function authenticateToken(req,res,next){
         next()
      })
 }
+
+// Student Login
 
 app.post("/login",async(req,res)=>{
     
