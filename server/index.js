@@ -14,6 +14,9 @@ const applicationModel = require("./Models/application")
 app.use(express.json());
 app.use(cors());
 
+const corsOptions = {
+    origin: 'https://get-intern.vercel.app/'
+}
 
 mongoose.connect("mongodb+srv://shivam1812:atlas1812@cluster0.ghlhz8q.mongodb.net/Internships?retryWrites=true&w=majority",
 {
