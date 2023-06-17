@@ -11,7 +11,7 @@ const NewIntern = () => {
 
     const addToList = () =>{
         console.log("button working!!")
-        axios.post("http://localhost:3001/insert",{
+        axios.post("https://get-intern.vercel.app/insert",{
             companyName,
             jobRole,
             stipend,
