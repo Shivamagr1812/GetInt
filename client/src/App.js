@@ -12,7 +12,7 @@ import { useEffect } from 'react';
 
 function App() {
   useEffect(()=>{
-    fetch("https://get-intern.onrender.com/").then((response)=>{
+    fetch("https://get-intern.onrender.com").then((response)=>{
       console.log("response")
       console.log(response)
     })
