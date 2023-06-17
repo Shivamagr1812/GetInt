@@ -11,7 +11,7 @@ const Register = ()=>{
 
     const addToList = () =>{
         console.log("button working!!")
-        axios.post("https://get-intern.vercel.app/register",{
+        axios.post("http://localhost:3001/register",{
             userName,
             password
         });

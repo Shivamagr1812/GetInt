@@ -8,15 +8,15 @@ import Navbar from './Navbar';
 import NewIntern from './NewIntern';
 import Register from './Register';
 import Footer from './Footer';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 
 function App() {
-  useEffect(()=>{
-    fetch("https://get-intern.onrender.com").then((response)=>{
-      console.log("response")
-      console.log(response)
-    })
-  },[])
+  // useEffect(()=>{
+  //   fetch("https://get-intern.onrender.com").then((response)=>{
+  //     console.log("response")
+  //     console.log(response)
+  //   })
+  // },[])
 
   return (
     <Router>
