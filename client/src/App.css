@@ -396,7 +396,7 @@ nav .title a img{
 }
 
 .block h2{
-  border-bottom: #013E27 solid 2px;
+  /* border-bottom: #013E27 solid 2px; */
   padding-bottom: 5px;
   margin-bottom: 5px;
 }
@@ -552,4 +552,32 @@ nav .title a img{
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+/* View Applications */
+
+.applications{
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.applications .block{
+  flex: 1 1 0;
+  padding: 20px;
+  margin: 20px;
+  min-width: 200px;
+  max-width: 200px;
+  background-color: #00abf0;
+  text-align: center;
+  border: #013E27 solid 3px;
+  border-radius: 8px;
+}
+
+.applications h1{
+  margin-bottom: 20px;
+  color: white;
+  font-size: 36px;
 }

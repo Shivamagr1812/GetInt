@@ -116,6 +116,8 @@ app.get("/read",authenticateToken,async(req,res)=>{
     })
 });
 
+// Authentication
+
 function authenticateToken(req,res,next){
     // console.log(req.headers)
     const authHeader=req.headers.authorization
@@ -133,6 +135,21 @@ function authenticateToken(req,res,next){
         next()
      })
 }
+
+// View Applications
+
+app.get("/readApplications",authenticateToken,async(req,res)=>{
+    applicationModel.find({}).then((result)=>{
+        console.log(result);
+        res.send(result);
+        console.log("result sent.")
+    })
+    .catch((err)=>{
+        console.log("Please log in")
+        res.send(err)
+    })
+}
+);
 
 // Student Login
 

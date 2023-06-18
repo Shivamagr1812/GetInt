@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 const NewIntern = () => {
     const [loggedin,setLoggedin]=useState(false);
 
+    const [applicationlist,setApplicationList] = useState([]); // To store all applications
+
     const [companyName,setCompanyName] = useState("");
     const [jobRole,setJobRole] = useState("");
     const [stipend,setStipend] = useState(0);
@@ -21,18 +23,28 @@ const NewIntern = () => {
         });
         const path=`/`
         navigate(path)
-        // setCompanyName("");
-        // setJobRole("");
-        // setStipend(0);
-        // setCutoff(0);
     }
 
+    // const downloadResume = (key) =>{
+    //     console.log("Download button working!!")
+    //     const file=applicationlist[key].Resume;
+    //     const link=document.createElement("a");
+    //     // const url=URL.createObjectURL(file);
+    //     const filename=applicationlist[key].Name;
+    //     console.log(filename);
+    //     // console.log(url);
+    //     console.log(file);
+    //     console.log(link);
+    // }
+
+
     useEffect(()=>{
-        axios.get("http://localhost:3001/read").then((response)=>{
+        axios.get("http://localhost:3001/readApplications").then((response)=>{
             const status=response.status
-            console.log(status)
+            console.log("Applications read")
             if(status===200){
                 setLoggedin(true);
+                setApplicationList(response.data)
             }
             console.log(loggedin)
         })
@@ -47,36 +59,57 @@ const NewIntern = () => {
     return (
         <div className="newIntern">
             {loggedin ?
-                <div className="details">
-                    <div className="fields">
-                        <div>
-                            <label>Company Name</label>
-                            <input type="text" value={companyName} id="CompanyName" onChange={(e)=>{
-                                setCompanyName(e.target.value);
-                            }}/>
+                <div>
+                    <div className="details">
+                        <div className="fields">
+                            <div>
+                                <label>Company Name</label>
+                                <input type="text" value={companyName} id="CompanyName" onChange={(e)=>{
+                                    setCompanyName(e.target.value);
+                                }}/>
+                            </div>
+                            <div>
+                                <label>Job Role</label>
+                                <input type="text" value={jobRole} id="JobRole" onChange={(e)=>{
+                                    setJobRole(e.target.value);
+                                }}/> 
+                            </div>
+                            <div>
+                                <label>Stipend</label>
+                                <input type="text" value={stipend} id="Stipend" onChange={(e)=>{
+                                    setStipend(e.target.value);
+                                }}/> 
+                            </div>
+                            <div>
+                                <label>Cut-Off</label>
+                                <input type="text" value={cutoff} id="Cutoff" onChange={(e)=>{
+                                    setCutoff(e.target.value);
+                                }}/> 
+                            </div>
                         </div>
-                        <div>
-                            <label>Job Role</label>
-                            <input type="text" value={jobRole} id="JobRole" onChange={(e)=>{
-                                setJobRole(e.target.value);
-                            }}/> 
-                        </div>
-                        <div>
-                            <label>Stipend</label>
-                            <input type="text" value={stipend} id="Stipend" onChange={(e)=>{
-                                setStipend(e.target.value);
-                            }}/> 
-                        </div>
-                        <div>
-                            <label>Cut-Off</label>
-                            <input type="text" value={cutoff} id="Cutoff" onChange={(e)=>{
-                                setCutoff(e.target.value);
-                            }}/> 
-                        </div>
+                            
+                            <button onClick={addToList}>Submit</button>
+                        {/* </form> */}
                     </div>
-                        
-                        <button onClick={addToList}>Submit</button>
-                    {/* </form> */}
+                    <div className="applications">
+                        <h1>Applications</h1>
+                        {/* Display all appliactions from database */}
+                        {applicationlist.map((val,key) => {
+                            return(
+                                <div key={key} className="block">
+                                    <div className="data">
+                                        <h2>{val.Name}</h2>
+                                        <div><span>Email: </span>{val.Email}</div>
+                                        <div><span>Branch: </span>{val.Branch}</div>
+                                        <div><span>Role: </span>{val.Role}</div>
+                                        {/* <a onClick={downloadResume(key)} href={val.Resume} download="CV" target="_blank" rel="noreferrer" >Download Resume</a> */}
+                                    </div>
+                                </div>
+                            )
+                        })
+                        }
+
+                    </div>
                 </div>
                 :
                 <div className="login">
