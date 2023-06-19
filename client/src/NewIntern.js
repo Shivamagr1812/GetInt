@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 const NewIntern = () => {
     const [loggedin,setLoggedin]=useState(false);
 
@@ -102,7 +104,7 @@ const NewIntern = () => {
                                         <div><span>Email: </span>{val.Email}</div>
                                         <div><span>Branch: </span>{val.Branch}</div>
                                         <div><span>Role: </span>{val.Role}</div>
-                                        {/* <a onClick={downloadResume(key)} href={val.Resume} download="CV" target="_blank" rel="noreferrer" >Download Resume</a> */}
+                                        <Link to={val.Resume} target="_blank" rel="noreferrer" >Download Resume</Link>
                                     </div>
                                 </div>
                             )

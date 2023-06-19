@@ -20,8 +20,7 @@ const ApplicationSchema = new mongoose.Schema({
         // required: true
     },
     Resume: {
-        data: Buffer,
-        contentType: String
+        type: String
         // required: true
     }
 })
