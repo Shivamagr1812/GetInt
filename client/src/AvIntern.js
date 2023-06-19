@@ -34,23 +34,25 @@ const AvIntern = ()=>{
 
     return(
         <div className="available">
-            <h1>Internships for you</h1>
             {loggedin? <div className="list">
-                {internList.map((val,key) => {
-                    return(
-                        <div key={key} className="block">
-                            <div className="data">
-                            <h2>{val.CompanyName}</h2>
-                            <div><span>Job Role: </span>{val.JobRole}</div>
-                            <div><span>Stipend: </span>{val.Stipend}</div>
-                            <div><span>Cutoff: </span>{val.CutOff}</div>
+                <h1>Internships for you</h1>
+                <div className="listJobs">
+                    {internList.map((val,key) => {
+                        return(
+                            <div key={key} className="block">
+                                <div className="data">
+                                <h2>{val.CompanyName}</h2>
+                                <div><span>Job Role: </span>{val.JobRole}</div>
+                                <div><span>Stipend: </span>{val.Stipend}</div>
+                                <div><span>Cutoff: </span>{val.CutOff}</div>
+                                </div>
+                                <div className="apply">
+                                    <button onClick={openModal} className="applyButton">Apply</button>
+                                </div>
                             </div>
-                            <div className="apply">
-                                <button onClick={openModal} className="applyButton">Apply</button>
-                            </div>
-                        </div>
-                    )
-                })}
+                        )
+                    })}
+                </div>
                 <Modal trigger={showModal} setTrigger={setShowModal}>
                 </Modal>
             </div> : <div className="login">

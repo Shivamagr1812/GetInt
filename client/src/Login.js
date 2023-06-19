@@ -30,24 +30,34 @@ const Login=()=>{
         navigate(path)
     }
     
+    const goToRegister=()=>{
+        const path=`/register`
+        navigate(path)
+    }
+
     return (
         <div className="details">
             <div className="fields">
-                <div>
-                    <label>Username</label>
-                    <input type="text" value={userName} onChange={(e)=>{
-                        setUserName(e.target.value);
-                    }}/>
+                <h2>Login</h2>
+                <div className="form">
+                    <div className="inputBox">
+                        <input type="text" value={userName} onChange={(e)=>{
+                            setUserName(e.target.value);
+                        }}/>
+                        <label>Username</label>
+                    </div>
+                    <div className="inputBox">
+                        <input type="password" value={password} onChange={(e)=>{
+                            setPassword(e.target.value);
+                        }}/> 
+                        <label>Password</label>
+                    </div>
+                    <button className="btn" onClick={addToList}>Login</button>
+                    <div className="wannaSwitch">
+                        <p>Not Registered Yet? <button onClick={goToRegister}>Register</button></p>
+                    </div>
                 </div>
-                <div>
-                    <label>Password</label>
-                    <input type="password" value={password} onChange={(e)=>{
-                        setPassword(e.target.value);
-                    }}/> 
-                </div>
-            </div>
-                
-            <button onClick={addToList}>Login</button>
+            </div>     
         </div>
     );
 }

@@ -80,7 +80,109 @@ nav .title a img{
   display: block;
 }
 
+/* Login Register */
+
 .details{
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  position: relative;
+  width: 400px;
+  height: 440px;
+  background: rgb(77, 85, 151);
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 30px rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fields{
+  width: 100%;
+  padding: 40px;
+}
+
+.fields h2{
+  font-size: 2em;
+  color: #fff;
+  text-align: center;
+}
+
+.inputBox{
+  position: relative;
+  width: 100%;
+  height: 50px;
+  border-bottom: 2px solid white;
+  margin: 30px 0;
+}
+
+.inputBox label{
+  position: absolute;
+  top: 50%;
+  left:5px;
+  transform: translateY(-50%);
+  font-size: 1em;
+  color: #162938;
+  font-weight: 600;
+  /* pointer-events: none; */
+  transition: 0.5s;
+}
+
+.inputBox input:focus~label,
+.inputBox input:valid~label{
+  top: -5px;
+}
+
+.inputBox input{
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  color: #162938;
+  font-weight: 600;
+  padding: 0 35px 0 5px;
+}
+
+.fields .btn{
+  width: 100%;
+  height: 45px;
+  background: #162938;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  color: #fff;
+  font-weight: 500;
+}
+
+.wannaSwitch{
+  font-size: 0.9em;
+  color: #162938;
+  text-align: center;
+  font-weight: 500;
+  margin: 25px 0 10px;
+}
+
+.wannaSwitch p button{
+  color: #162938;
+  text-decoration: none;
+  font-weight: 600;
+  background: transparent;
+  border: none;
+}
+
+.wannaSwitch p button:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+/* .details{
   border: 4px solid black;
   margin: 7% auto;
   max-width: fit-content;
@@ -127,7 +229,7 @@ nav .title a img{
 }
 .details button:hover{
   background-color: #5a5a5a;
-}
+} */
 
 /* Homepage */
 
@@ -378,9 +480,16 @@ nav .title a img{
 
 .available .list{
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 20px;
+}
+
+.listJobs{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .available .list .block{
