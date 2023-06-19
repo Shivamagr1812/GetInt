@@ -5,6 +5,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const multer = require("multer");
+const cloudinary = require("cloudinary").v2;
 
 const app = express();
 
@@ -14,14 +15,25 @@ const applicationModel = require("./Models/application")
 app.use(express.json());
 app.use(cors());
 
-// const corsOptions = {
-//     origin: 'https://get-intern.vercel.app/'
-// }
-
 mongoose.connect(process.env.MONGODB_URL,
 {
     useNewUrlParser: true
 });
+
+// Cloudinary Config
+cloudinary.config({
+  cloud_name: process.env.CLOUDNAME,
+  api_key: process.env.APIKEY,
+  api_secret: process.env.APISECRET,
+});
+
+// File Upload
+async function handleUpload(file) {
+  const res = await cloudinary.uploader.upload(file, {
+    resource_type: "auto",
+  });
+  return res;
+}
 
 // Student Registration
 
@@ -80,17 +92,29 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
 app.post("/apply",upload.single('resume'),async(req,res)=>{
-    console.log(req);
+    // console.log(req);
     const name = req.body.name;
     const email = req.body.email;
     const branch = req.body.branch;
     const role = req.body.role;
-    const resume = {
-        data: req.file.buffer,
-        contentType: req.file.mimetype
+    var entry;
+
+    try {
+        const b64 = Buffer.from(req.file.buffer).toString("base64");
+        let dataURI = "data:" + req.file.mimetype + ";base64," + b64;
+        const cldRes = await handleUpload(dataURI);
+        console.log(cldRes.url);
+        var resume = "";
+        resume = cldRes.url;
+        entry = new applicationModel({ Name: name, Email: email , Branch: branch, Role: role, Resume: resume});
+        // res.json(cldRes);
+    } catch (error) {
+        console.log(error);
+        res.send({
+        message: error.message,
+        });
     }
 
-    const entry = new applicationModel({ Name: name, Email: email , Branch: branch, Role: role, Resume: resume});
     // const entry = new internModel({ Name: name, Email: email , Branch: branch, Role: role, Resume: resume});
     
     try{
@@ -116,6 +140,8 @@ app.get("/read",authenticateToken,async(req,res)=>{
     })
 });
 
+// Authentication
+
 function authenticateToken(req,res,next){
     // console.log(req.headers)
     const authHeader=req.headers.authorization
@@ -133,6 +159,21 @@ function authenticateToken(req,res,next){
         next()
      })
 }
+
+// View Applications
+
+app.get("/readApplications",authenticateToken,async(req,res)=>{
+    applicationModel.find({}).then((result)=>{
+        // console.log(result);
+        res.send(result);
+        console.log("result sent.")
+    })
+    .catch((err)=>{
+        console.log("Please log in")
+        res.send(err)
+    })
+}
+);
 
 // Student Login
 

@@ -24,7 +24,7 @@ function Modal(props) {
         data.append('email',email);
         data.append('branch',branch);
         data.append('role',role);
-        axios.post("https://get-intern.vercel.app/apply",data,{headers: {'Content-Type':'multipart/form-data'}}).then((res)=>{
+        axios.post("http://localhost:3001/apply",data,{headers: {'Content-Type':'multipart/form-data'}}).then((res)=>{
             console.log("Form Submitted");
             // console.log(res);
         })
