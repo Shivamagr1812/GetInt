@@ -240,6 +240,7 @@ nav .title a img{
 }
 
 .intro{
+  height: 80vh;
   flex: 1 1 auto;
   display: flex;
   flex-direction: row;
@@ -247,7 +248,8 @@ nav .title a img{
 }
 
 .welcome{
-  padding: 10% 0;
+  padding-top: 10%;
+  height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -258,6 +260,7 @@ nav .title a img{
   width: 36vw;
   height: auto;
 }
+
 
 .dialogBox{
   width: 50vw;
@@ -275,10 +278,10 @@ nav .title a img{
   font-size: 32px;
   font-weight: 560;
   color: #00abf0;
-    /* color: rgb(0, 77, 9);
-    padding: 20px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    word-spacing: 0.3em; */
+  /* color: rgb(0, 77, 9);
+  padding: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  word-spacing: 0.3em; */
 }
 
 .dialogBox p{
@@ -293,17 +296,19 @@ nav .title a img{
 
 .dialogBox .option{
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
-  height: 50px;
+  /* height: 100vh; */
 }
 
 .stud ,.emp {
+  flex: 1 1 30%;
   width: 50%;
   /* height: 100px; */
   text-align: center;
-  padding-right: 10%;
-  /* margin: 0 4%; */
+  padding: 0 5%;
+  /* margin: auto; */
 }
 
 .option p{
@@ -313,11 +318,11 @@ nav .title a img{
 }
 
 .option button{
-  display: inline-flex;  
+  /* display: inline-flex;   */
   justify-content: center;
   align-items: center;
   width: 150px;
-  height: 100%;
+  height: 50px;
   background: #00abf0;
   border: 2px solid #00abf0;
   border-radius: 8px;
@@ -334,6 +339,21 @@ nav .title a img{
   margin-right: 5px;
 }
 
+@media screen and (max-width: 768px){
+  .homePage{
+    padding: 0 5%;
+  }
+  .intro{
+    height: 100vh;
+  }
+  .homeImg img{
+    /* width: 100%; */
+    display: none;
+  }
+  .dialogBox{
+    width: 100vw;
+  }
+}
 
 /* .option button:nth-child(2){
   background: transparent;
@@ -347,13 +367,13 @@ nav .title a img{
 /* Process */
 
 .process{
+  height: 100vh;
   flex: 1 1 0;
-  min-height: 100%;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 5%;
+  padding: 0 5%;
 }
 
 .process h2{
@@ -364,6 +384,7 @@ nav .title a img{
 .process .steps{
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   /* width: 100%; */
 }
@@ -372,9 +393,10 @@ nav .title a img{
   background-color: #00abf0;
   flex: 1 1 0;
   display: flex;
+  max-width: 50vw;
   flex-direction: column;
   align-items: center;
-  margin: 0 20px;
+  margin: 20px;
   padding: 5% 0;
 }
 
@@ -394,12 +416,13 @@ nav .title a img{
 
 .team .teamMembers{
   display: flex;
+  /* flex-wrap: wrap; */
   flex-direction: row;
   justify-content: center;
 }
 
 .team .member{
-  flex: 1 1 0;
+  flex: 1 1 30%;
   padding: 10%;
   text-align: center;
 }
@@ -407,6 +430,7 @@ nav .title a img{
 .team .member img{
   width: 20vw;
   height: 40vh;
+  /* clip-path: circle(); */
   border-radius: 50%;
   object-fit: cover;
   padding: 20px 0;
@@ -414,6 +438,16 @@ nav .title a img{
 
 .team h2,h3{
   color: white
+}
+
+@media screen and (max-width: 768px){
+  .team .teamMembers{
+    flex-direction: column;
+  }
+  .team .member img{
+    width: 50vw;
+    height: 30vh;
+  }
 }
 
 /* About */
@@ -549,7 +583,7 @@ nav .title a img{
   flex: 0 0 50px;
   margin-top: auto;
 	background-color: #24262b;
-  padding: 70px 0;
+  padding: 70px 20px;
 }
 .footer-col{
    width: 25%;
@@ -614,11 +648,11 @@ nav .title a img{
     margin-bottom: 30px;
 }
 }
-@media(max-width: 574px){
+/* @media(max-width: 574px){
   .footer-col{
     width: 100%;
 }
-}
+} */
 
 /* Popups */
 

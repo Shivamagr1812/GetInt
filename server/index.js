@@ -142,22 +142,25 @@ app.get("/read",authenticateToken,async(req,res)=>{
 
 // Authentication
 
-function authenticateToken(req,res,next){
-    // console.log(req.headers)
-    const authHeader=req.headers.authorization
-    console.log(authHeader)
-    const token=authHeader && authHeader.split(' ')[1];
-    if(token==null){
-        console.log("Token is null")
-        return res.sendStatus(401)
-    }
+function authenticateToken(req, res, next) {
+  console.log(req.headers)
+  const authHeader = req.headers.authorization
+  console.log(authHeader)
+  const token = authHeader && authHeader.split(' ')[1];
+  if (token == null) {
+    console.log("Token is null")
+    return res.sendStatus(401)
+  }
 
-    jwt.verify(token,process.env.ACCESS_TOKEN_SECRET,(err,user)=>{
-        if(err) res.sendStatus(403)
-        req.user=user
-        console.log(user)
-        next()
-     })
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+    if (err) {
+      console.log(err)
+      return res.sendStatus(403)
+    }
+    req.user = user
+    console.log(user)
+    next()
+  })
 }
 
 // View Applications
