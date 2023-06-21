@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -19,7 +19,7 @@ const Login=()=>{
 
     const addToList = () =>{
         console.log("button working!!")
-        axios.post("http://localhost:3001/login",{
+        axios.post("http://localhost:3001/loginCompany",{
             userName,
             password
         }).then((res)=>{
@@ -31,14 +31,14 @@ const Login=()=>{
     }
     
     const goToRegister=()=>{
-        const path=`/register`
+        const path=`/registerCompany`
         navigate(path)
     }
 
     return (
         <div className="details">
             <div className="fields">
-                <h2>Login</h2>
+                <h2>Login as company</h2>
                 <div className="form">
                     <div className="inputBox">
                         <input type="text" value={userName} onChange={(e)=>{
@@ -56,6 +56,7 @@ const Login=()=>{
                     <div className="wannaSwitch">
                         <p>Not Registered Yet? <button onClick={goToRegister}>Register</button></p>
                     </div>
+                    <Link to="/login">Login as student</Link>
                 </div>
             </div>     
         </div>
