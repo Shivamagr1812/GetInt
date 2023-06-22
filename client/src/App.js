@@ -3,10 +3,12 @@ import About from './About';
 import './App.css';
 import AvIntern from './AvIntern';
 import Home from './Home';
-import Login from './Login';
+import Register from './Student/Register';
+import Login from './Student/Login';
+import LoginCompany from './Company/Login';
+import RegisterCompany from './Company/Register';
 import Navbar from './Navbar';
 import NewIntern from './NewIntern';
-import Register from './Register';
 import Footer from './Footer';
 // import { useEffect } from 'react';
 
@@ -30,6 +32,9 @@ function App() {
             <Route path="/interns" element={<AvIntern/>}></Route>
             <Route path='/register' element={<Register/>}></Route>
             <Route path='/login' element={<Login/>}></Route>
+            <Route path='/registerCompany' element={<RegisterCompany/>}></Route>
+            <Route path='/loginCompany' element={<LoginCompany/>}></Route>
+            <Route path='*' element={<h1>404 Not Found</h1>}></Route>
           </Routes>
         </div>
         <Footer />

@@ -12,6 +12,7 @@ const app = express();
 const internModel = require("./Models/intern")
 const studentModel = require("./Models/student")
 const applicationModel = require("./Models/application")
+const companyModel = require("./Models/company")
 app.use(express.json());
 app.use(cors());
 
@@ -54,8 +55,8 @@ app.post("/register",async(req,res)=>{
 app.post("/registerCompany",async(req,res)=>{
     try{
         const hashedPassword = await bcrypt.hash(req.body.password,10)
-        const user = {name: req.body.name , password: hashedPassword}
-        const newUser = new companyModel({name: user.name, password: user.password})
+        const user = {name: req.body.userName , password: hashedPassword}
+        const newUser = new companyModel({username: user.name, password: user.password})
         await newUser.save()
         res.status(201).send()
     } catch{
@@ -129,7 +130,7 @@ app.post("/apply",upload.single('resume'),async(req,res)=>{
 
 // View Internships
 
-app.get("/read",authenticateToken,async(req,res)=>{
+app.get("/read",authenticateUser,async(req,res)=>{
     internModel.find({}).then((result)=>{
         res.send(result);
         console.log("result sent.")
@@ -140,29 +141,36 @@ app.get("/read",authenticateToken,async(req,res)=>{
     })
 });
 
-// Authentication
+// Student Authentication
 
-function authenticateToken(req,res,next){
-    // console.log(req.headers)
-    const authHeader=req.headers.authorization
-    console.log(authHeader)
-    const token=authHeader && authHeader.split(' ')[1];
-    if(token==null){
-        console.log("Token is null")
-        return res.sendStatus(401)
+function authenticateUser(req, res, next) {
+  console.log(req.headers)
+  const authHeader = req.headers.authorization
+  console.log(authHeader)
+  const token = authHeader && authHeader.split(' ')[1];
+  if (token == null) {
+    console.log("Token is null")
+    return res.sendStatus(401)
+  }
+
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+    if (err) {
+      console.log(err)
+      return res.sendStatus(403)
     }
-
-    jwt.verify(token,process.env.ACCESS_TOKEN_SECRET,(err,user)=>{
-        if(err) res.sendStatus(403)
-        req.user=user
-        console.log(user)
-        next()
-     })
+    req.user = user
+    console.log(user)
+    if(user.isUser==false){
+        console.log("User is not a student")
+        return res.sendStatus(403)
+    }
+    next()
+  })
 }
 
 // View Applications
 
-app.get("/readApplications",authenticateToken,async(req,res)=>{
+app.get("/readApplications",authenticateCompany,async(req,res)=>{
     applicationModel.find({}).then((result)=>{
         // console.log(result);
         res.send(result);
@@ -174,6 +182,33 @@ app.get("/readApplications",authenticateToken,async(req,res)=>{
     })
 }
 );
+
+// Company Authentication
+
+function authenticateCompany(req, res, next) {
+    console.log(req.headers)
+    const authHeader = req.headers.authorization
+    console.log(authHeader)
+    const token = authHeader && authHeader.split(' ')[1];
+    if (token == null) {
+        console.log("Token is null")
+        return res.sendStatus(401)
+    }
+
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+        if (err) {
+        console.log(err)
+        return res.sendStatus(403)
+        }
+        req.user = user
+        console.log(user)
+        if(user.isUser==true){
+            console.log("User is not a company")
+            return res.sendStatus(403)
+        }
+        next()
+    })
+}
 
 // Student Login
 
@@ -192,7 +227,7 @@ app.post("/login",async(req,res)=>{
         if(match){
             // console.log("matched")
             // console.log(user,process.env.ACCESS_TOKEN_SECRET)
-            const token=jwt.sign({id: user._id},process.env.ACCESS_TOKEN_SECRET)
+            const token=jwt.sign({id: user._id, isUser: true},process.env.ACCESS_TOKEN_SECRET)
             res.json({user:user,token:token})
         }
         else{
@@ -204,6 +239,35 @@ app.post("/login",async(req,res)=>{
     }    
 })
 
+// Company Login
+
+app.post("/loginCompany",async(req,res)=>{
+    
+    try{
+        console.log("Tried.")
+        const user=await companyModel.findOne({username: req.body.userName})
+        console.log("User....")
+        if(!user){
+            console.log("No such user exists")
+            res.sendStatus(400);
+        }
+        const match=await bcrypt.compare(req.body.password,user.password)
+        console.log(match)
+        if(match){
+            // console.log("matched")
+            // console.log(user,process.env.ACCESS_TOKEN_SECRET)
+            const token=jwt.sign({id: user._id, isUser: false},process.env.ACCESS_TOKEN_SECRET)
+            res.json({user:user,token:token})
+        }
+        else{
+            console.log("Password incorrect")
+            res.send("Password incorrect")
+        }
+    } catch{
+        res.status(500).send()
+    }    
+})
+    
 app.listen(3001,()=>{
     console.log("Running...");
 });
