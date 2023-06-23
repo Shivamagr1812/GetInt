@@ -35,13 +35,13 @@ const Register = ()=>{
                 <h2>Register as company</h2>
                 <div className="form">
                     <div className="inputBox">
-                        <input type="text" value={userName} onChange={(e)=>{
+                        <input type="text" required value={userName} onChange={(e)=>{
                             setUserName(e.target.value);
                         }}/>
                         <label>Username</label>
                     </div>
                     <div className="inputBox">
-                        <input type="password" value={password} onChange={(e)=>{
+                        <input type="password" required value={password} onChange={(e)=>{
                             setPassword(e.target.value);
                         }}/> 
                         <label>Password</label>
