@@ -66,6 +66,7 @@ nav{
   outline: none;
   color: #00abf0;
   visibility: hidden;
+  display: none;
   opacity: 0;
   font-size: 1.8rem;
 }
@@ -73,6 +74,7 @@ nav{
 @media only screen and (max-width:768px){
   .nav-btn{
     visibility: visible;
+    display: flex;
     opacity: 1;
   }
 
@@ -98,8 +100,8 @@ nav{
 
   .nav-close-btn{
     position: absolute;
-    top: 0.38rem;
-    right: 3.6rem;
+    top: 0.48rem;
+    right: 3.7rem;
   }
 
   .navbar a{
