@@ -46,21 +46,24 @@ const Home = ()=>{
                 <h2>Follow three simple steps:</h2>
                 <div className="steps">
                     <div className="step1">
-                        <img src={require('./assets/img/login.png')} alt="login" />
+                        <img className="registerPic" src={require('./assets/img/login.png')} alt="login" />
+                        <header><h2>Register on our platform</h2></header>
                         <p>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis sequi reprehenderit rem ipsam facere sint dolor, exercitationem quas nemo fugit officiis, temporibus laboriosam saepe eius illum atque doloribus quibusdam repellat!
+                        Join our platform and unlock a world of opportunities. Register now and access the features. Whether you're a professional or a student, our platform is designed to help you.
                         </p>
                     </div>
                     <div className="step2">
-                        <img src={require('./assets/img/login.png')} alt="login" />
+                        <img className="choicePic" src={require('./assets/img/choice.png')} alt="login" />
+                        <header><h2>Choose from available internships</h2></header>
                         <p>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis sequi reprehenderit rem ipsam facere sint dolor, exercitationem quas nemo fugit officiis, temporibus laboriosam saepe eius illum atque doloribus quibusdam repellat!
+                        With our platform, the power of choice is in your hands. Select the internship that best suits you from a diverse array of options spanning various domains.  
                         </p>
                     </div>
                     <div className="step3">
-                        <img src={require('./assets/img/login.png')} alt="login" />
+                        <img className="resumePic" src={require('./assets/img/submit.png')} alt="login" />
+                        <header><h2>Submit your resume</h2></header>
                         <p>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis sequi reprehenderit rem ipsam facere sint dolor, exercitationem quas nemo fugit officiis, temporibus laboriosam saepe eius illum atque doloribus quibusdam repellat!
+                        Attach your impressive resume and submit the form, and voila! You're all set and ready to embark on your journey.
                         </p>
                     </div>
                 </div>

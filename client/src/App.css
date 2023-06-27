@@ -425,17 +425,23 @@ nav .title a img{
 
 .process{
   height: 100vh;
-  flex: 1 1 0;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  flex: 1 1 0;
   align-items: center;
   padding: 0 5%;
+  /* justify-content: center; */
 }
 
 .process h2{
   color: white;
-  padding: 20px 0;
+  padding: 20px;
+}
+
+.step1, .step2, .step3 h2{
+  margin: auto;
+  min-width: 250px;
 }
 
 .process .steps{
@@ -460,6 +466,16 @@ nav .title a img{
 .process div p{
   padding: 10%;
   color: #ffffff;
+}
+
+.resumePic,.registerPic{
+  max-width: 250px;
+  max-height: 150px;
+}
+
+.choicePic{
+  max-width: 250px;
+  max-height: 150px;
 }
 
 /* Team */
