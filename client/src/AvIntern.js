@@ -41,10 +41,10 @@ const AvIntern = ()=>{
                         return(
                             <div key={key} className="block">
                                 <div className="data">
-                                <h2>{val.CompanyName}</h2>
-                                <div><span>Job Role: </span>{val.JobRole}</div>
-                                <div><span>Stipend: </span>{val.Stipend}</div>
-                                <div><span>Cutoff: </span>{val.CutOff}</div>
+                                    <h2>{val.CompanyName}</h2>
+                                    <div><span>Job Role: </span>{val.JobRole}</div>
+                                    <div><span>Stipend: </span>{val.Stipend}</div>
+                                    <div className="last" ><span>Cutoff: </span>{val.CutOff}</div>
                                 </div>
                                 <div className="apply">
                                     <button onClick={openModal} className="applyButton">Apply</button>
